@@ -1,11 +1,15 @@
 import cdk = require('@aws-cdk/core');
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as apigw from '@aws-cdk/aws-apigateway';
+import * as dynamodb from '@aws-cdk/aws-dynamodb';
 import { HitCounter } from './construct/hitcounter';
-import {TableViewer} from 'cdk-dynamo-table-viewer';
+import { TableViewer } from 'cdk-dynamo-table-viewer';
+import { Construct } from '@aws-cdk/core';
 
-export class EvalCdkStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+export class HitCounterApiStack extends cdk.Stack {
+  public readonly counterTable: dynamodb.Table;
+
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // defines an AWS Lambda resource
@@ -19,17 +23,13 @@ export class EvalCdkStack extends cdk.Stack {
       downStream: hello
     });
 
+    this.counterTable = helloWithCounter.table;
+
     new apigw.LambdaRestApi(this, 'Endpoint',
       {
         handler: helloWithCounter.handler,
       }
     );
-
-    new TableViewer(this, 'ViewHitHandler', {
-      title: 'Hello Hits',
-      table: helloWithCounter.table,
-      sortBy: 'hits'
-    });
 
   }
 }
