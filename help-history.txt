@@ -1,0 +1,67 @@
+cdk --help                                                                                                                                    [cm-wada]  木 10/17 17:49:05 2019
+Usage: cdk -a <cdk-app> COMMAND
+
+コマンド:
+  cdk list [STACKS..]             Lists all stacks in the app   [エイリアス: ls]
+  cdk synthesize [STACKS..]       Synthesizes and prints the CloudFormation
+                                  template for this stack    [エイリアス: synth]
+  cdk bootstrap [ENVIRONMENTS..]  Deploys the CDK toolkit stack into an AWS
+                                  environment
+  cdk deploy [STACKS..]           Deploys the stack(s) named STACKS into your
+                                  AWS account
+  cdk destroy [STACKS..]          Destroy the stack(s) named STACKS
+  cdk diff [STACKS..]             Compares the specified stack with the deployed
+                                  stack or a local template file, and returns
+                                  with status 1 if any difference is found
+  cdk metadata [STACK]            Returns all metadata associated with this
+                                  stack
+  cdk init [TEMPLATE]             Create a new, empty CDK project from a
+                                  template. Invoked without TEMPLATE, the app
+                                  template will be used.
+  cdk context                     Manage cached context values
+  cdk docs                        Opens the reference documentation in a browser
+                                                               [エイリアス: doc]
+  cdk doctor                      Check your set-up for potential problems
+
+オプション:
+  --app, -a             REQUIRED: command-line for executing your app or a cloud
+                        assembly directory (e.g. "node bin/my-app.js")  [文字列]
+  --context, -c         Add contextual string parameter (KEY=VALUE)       [配列]
+  --plugin, -p          Name or path of a node package that extend the CDK
+                        features. Can be specified multiple times         [配列]
+  --trace               Print trace for stack warnings                    [真偽]
+  --strict              Do not construct stacks with warnings             [真偽]
+  --ignore-errors       Ignores synthesis errors, which will likely produce an
+                        invalid output                [真偽] [デフォルト: false]
+  --json, -j            Use JSON output instead of YAML when templates are
+                        printed to STDOUT             [真偽] [デフォルト: false]
+  --verbose, -v         Show debug logs               [真偽] [デフォルト: false]
+  --profile             Use the indicated AWS profile as the default environment
+                                                                        [文字列]
+  --proxy               Use the indicated proxy. Will read from HTTPS_PROXY
+                        environment variable if not specified.          [文字列]
+  --ec2creds, -i        Force trying to fetch EC2 instance credentials. Default:
+                        guess EC2 instance status.                        [真偽]
+  --version-reporting   Include the "AWS::CDK::Metadata" resource in synthesized
+                        templates (enabled by default)                    [真偽]
+  --path-metadata       Include "aws:cdk:path" CloudFormation metadata for each
+                        resource (enabled by default)  [真偽] [デフォルト: true]
+  --asset-metadata      Include "aws:asset:*" CloudFormation metadata for
+                        resources that user assets (enabled by default)
+                                                       [真偽] [デフォルト: true]
+  --role-arn, -r        ARN of Role to use when invoking CloudFormation [文字列]
+  --toolkit-stack-name  The name of the CDK toolkit stack               [文字列]
+  --staging             Copy assets to the output directory (use --no-staging to
+                        disable, needed for local debugging the source files
+                        with SAM CLI)                  [真偽] [デフォルト: true]
+  --output, -o          Emits the synthesized cloud assembly into a directory
+                        (default: cdk.out)                              [文字列]
+  --no-color            Removes colors and other style from console output
+                                                      [真偽] [デフォルト: false]
+  --version             バージョンを表示                                  [真偽]
+  -h, --help            ヘルプを表示                                      [真偽]
+
+If your app has a single stack, there is no need to specify the stack name
+
+If one of cdk.json or ~/.cdk.json exists, options specified there will be used
+as defaults. Settings in cdk.json take precedence.
