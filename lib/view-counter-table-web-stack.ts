@@ -15,7 +15,7 @@ export class ViewCounterTableWebStack extends cdk.Stack {
     new TableViewer(this, 'ViewHitHandler', {
       title: 'Hello Hits',
       table: props.counterTable,
-      sortBy: 'hits'
+      sortBy: '-hits'
     });
 
 

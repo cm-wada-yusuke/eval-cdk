@@ -3,7 +3,6 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import * as apigw from '@aws-cdk/aws-apigateway';
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
 import { HitCounter } from './construct/hitcounter';
-import { TableViewer } from 'cdk-dynamo-table-viewer';
 import { Construct } from '@aws-cdk/core';
 
 export class HitCounterApiStack extends cdk.Stack {
