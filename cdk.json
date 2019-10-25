@@ -1,6 +1,5 @@
 {
   "context": {
-    "priority": "cdk.json",
     "dev": {
       "hitCounterSiteName": "Development Dope"
     },
